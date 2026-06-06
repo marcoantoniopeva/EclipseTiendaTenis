@@ -28,7 +28,7 @@ import com.backend.Tienda.tenis.Service.VentaService;
 
 @org.springframework.web.bind.annotation.RestController
 @RequestMapping("/api")
-@CrossOrigin("*") // Se cambió "init" por "*" para evitar bloqueos CORS
+@CrossOrigin("*")
 public class RestController {
 	
 	@Autowired private UsuariosService usuariosService;
@@ -43,7 +43,7 @@ public class RestController {
 	
 	@GetMapping("/apiDatos")
 	public List<UsuariosEntity> muestra(){
-		return usuariosService.mostrardatos();
+		return usuariosService.listar();
 	}
 
 	@GetMapping("/venta")

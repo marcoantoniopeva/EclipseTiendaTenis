@@ -16,11 +16,15 @@ public class UsuariosService {
 	@Autowired
 	private Usuarios_Repository usuariosrepository;
 	
+	// 1. Cambiamos 'mostrardatos' por 'listar' para que coincida con el Controller
 	@Transactional
-	public List<UsuariosEntity> mostrardatos (){
+	public List<UsuariosEntity> listar() {
 		return usuariosrepository.findAll();
-		
 	}
 
-	
+	// 2. Agregamos el método guardar que le faltaba al Controller
+	@Transactional
+	public UsuariosEntity guardar(UsuariosEntity usuario) {
+		return usuariosrepository.save(usuario);
+	}
 }

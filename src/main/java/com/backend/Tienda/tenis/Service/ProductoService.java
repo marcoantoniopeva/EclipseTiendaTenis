@@ -13,7 +13,20 @@ public class ProductoService {
     @Autowired
     private Producto_Repository productoRepository;
 
+    // Método para consultar
     public List<ProductoEntity> listar() {
         return (List<ProductoEntity>) productoRepository.findAll();
+    }
+
+    // --- MÉTODOS NUEVOS AGREGADOS ---
+
+    // Método para guardar (Spring Boot es inteligente: si el ID no existe, lo crea; si ya existe, lo actualiza)
+    public ProductoEntity guardar(ProductoEntity producto) {
+        return productoRepository.save(producto);
+    }
+
+    // Método para eliminar buscando por su ID
+    public void eliminar(Integer id) {
+        productoRepository.deleteById(id);
     }
 }
