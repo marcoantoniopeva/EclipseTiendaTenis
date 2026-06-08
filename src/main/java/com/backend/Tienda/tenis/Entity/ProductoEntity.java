@@ -11,6 +11,7 @@ public class ProductoEntity {
     private String marca;
     private Double precio;
     private Integer stock;
+    private String imagen_url;
 
     public Integer getId_producto() { return id_producto; }
     public void setId_producto(Integer id_producto) { this.id_producto = id_producto; }
@@ -22,4 +23,6 @@ public class ProductoEntity {
     public void setPrecio(Double precio) { this.precio = precio; }
     public Integer getStock() { return stock; }
     public void setStock(Integer stock) { this.stock = stock; }
+    public String getImagen_url() { return imagen_url; }
+    public void setImagen_url(String imagen_url) { this.imagen_url = imagen_url; }
 }

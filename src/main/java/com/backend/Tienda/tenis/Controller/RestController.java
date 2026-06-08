@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.backend.Tienda.tenis.Entity.CategoriasEntity;
@@ -61,9 +62,10 @@ public class RestController {
 		return productoService.listar();
 	}
 
-	@GetMapping("/pago")
+	@GetMapping("/pago/todos")
 	public List<PagoEntity> listarPagos() {
-		return pagoService.listar();
+	    return pagoService.listar();
+	
 	}
 
 	@GetMapping("/estado_v")
@@ -84,5 +86,10 @@ public class RestController {
 	@GetMapping("/categorias")
 	public List<CategoriasEntity> listarCategorias() {
 		return categoriasService.listar();
+	}
+	
+	@GetMapping("/datos_personales/usuario/{idUsuario}")
+	public Datos_PersonalesEntity obtenerDatosPersonales(@PathVariable Integer idUsuario) {
+	    return datosPersonalesService.obtenerPorUsuarioId(idUsuario);
 	}
 }

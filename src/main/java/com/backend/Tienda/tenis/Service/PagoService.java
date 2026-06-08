@@ -13,6 +13,6 @@ public class PagoService {
     private Pago_Repository pagoRepository;
 
     public List<PagoEntity> listar() {
-        return (List<PagoEntity>) pagoRepository.findAll();
+        return pagoRepository.findAll();
     }
 }

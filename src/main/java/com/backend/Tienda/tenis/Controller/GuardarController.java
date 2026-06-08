@@ -24,6 +24,7 @@ public class GuardarController {
     // 2. AGREGAR: POST a http://localhost:8080/agregar/nuevo
     @PostMapping("/nuevo")
     public ProductoEntity agregarProducto(@RequestBody ProductoEntity producto) {
+        System.out.println("imagen_url recibida: " + producto.getImagen_url());
         return productoService.guardar(producto);
     }
 

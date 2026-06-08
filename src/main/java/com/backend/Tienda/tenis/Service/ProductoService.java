@@ -29,4 +29,14 @@ public class ProductoService {
     public void eliminar(Integer id) {
         productoRepository.deleteById(id);
     }
+    
+    public void restarStock(Integer idProducto, int cantidad) {
+        ProductoEntity producto = productoRepository.findById(idProducto)
+            .orElseThrow(() -> new RuntimeException("Producto no encontrado"));
+        if (producto.getStock() < cantidad) {
+            throw new RuntimeException("Stock insuficiente");
+        }
+        producto.setStock(producto.getStock() - cantidad);
+        productoRepository.save(producto);
+    }
 }
