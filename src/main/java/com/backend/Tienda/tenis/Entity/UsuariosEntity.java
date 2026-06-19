@@ -2,6 +2,8 @@ package com.backend.Tienda.tenis.Entity;
 
 import java.io.Serializable;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,10 +20,10 @@ public class UsuariosEntity implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // Agregué esto asumiendo que tu ID es autoincrementable en MySQL
 	@Column(name="id_usuario")
-	private long idUsuarios;
-	
+	private Integer idusuario;
+
 	@Column(name="id_rol")
-	private long idRol;
+	private Integer idrol;
 	
 	// CAMBIO: De long a String para que acepte texto
 	@Column(name="email")
@@ -32,30 +34,29 @@ public class UsuariosEntity implements Serializable {
 	private String password;
 	
 	// CAMBIO: De long a String (o podrías usar java.util.Date)
-	@Column(name="fecha_registro")
-	private String fechaRegistro;
-	
+	@Column(name = "fecha_registro")
+	private LocalDateTime fechaRegistro;
 	
 	// ==========================================
 	// GETTERS Y SETTERS (Obligatorios para Spring)
 	// ==========================================
 	
-	public long getIdUsuarios() {
-		return idUsuarios;
+	public Integer getIdUsuario() {
+	    return idusuario;
 	}
 
-	public void setIdUsuarios(long idUsuarios) {
-		this.idUsuarios = idUsuarios;
+	public void setIdUsuario(Integer idUsuario) {
+	    this.idusuario = idUsuario;
 	}
 
-	public long getIdRol() {
-		return idRol;
+	public Integer getIdRol() {
+	    return idrol;
 	}
 
-	public void setIdRol(long idRol) {
-		this.idRol = idRol;
+	public void setIdRol(Integer idRol) {
+	    this.idrol = idRol;
 	}
-
+	
 	public String getEmail() {
 		return email;
 	}
@@ -72,11 +73,11 @@ public class UsuariosEntity implements Serializable {
 		this.password = password;
 	}
 
-	public String getFechaRegistro() {
-		return fechaRegistro;
+	public LocalDateTime getFechaRegistro() {
+	    return fechaRegistro;
 	}
 
-	public void setFechaRegistro(String fechaRegistro) {
-		this.fechaRegistro = fechaRegistro;
+	public void setFechaRegistro(LocalDateTime fechaRegistro) {
+	    this.fechaRegistro = fechaRegistro;
 	}
 }
