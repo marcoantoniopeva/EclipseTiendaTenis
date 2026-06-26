@@ -19,4 +19,9 @@ public class Datos_PersonalesService {
     public Datos_PersonalesEntity obtenerPorUsuarioId(Integer idUsuario) {
         return repository.findByIdUsuario(idUsuario);
     }
+
+    // NUEVO: Guardar o actualizar datos personales
+    public Datos_PersonalesEntity guardar(Datos_PersonalesEntity datos) {
+        return repository.save(datos);
+    }
 }
